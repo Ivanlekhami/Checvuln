@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-5 p-3">
+    <h1 class="text-center text-white mt-5">Check that the site does not contain sensitive
+      information and assess the level of vulnerability</h1>
+
+    <form method="POST" class="d-flex container mt-5 p-3" >
+      {% csrf_token %}
+      <input type="url" class="text-center" style="font-size:1.8em; width:100%; border:3px solid #00AEA0; border-radius:20px 0 0 20px;" placeholder="Enter site URL(e.g.www.m1sled.cm)" name="url" required/>
+      <button class="bg-light" type="submit" style="font-size:1.8em; border:3px solid #00AEA0; border-radius:0 20px 20px 0;">
+        <i class="bi bi-search"></i>
+      </button>
+    </form>
+
+    <!-- Partie resultat -->
+    <div class="text-center text-white mt-3">
+      {% if results %}
+        <span class="text-primary">URL:</span> {{ url }}  <br>
+        <span class="text-primary"> Test results: </span> <br>
+        {% for result in results %}
+          {{ result }} <br>
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    <div class="container rounded border border-white mt-5">
+      <p class="text-white p-3" style="font-size: 1.8em;">
+        <i class="bi bi-exclamation-triangle text-warning"></i> Disclaimer <br>
+        The information presented on this site concerning website vulnerabilities is provided for information purposes
+        only. While we endeavor to maintain its accuracy, we accept no liability for the use of the data presented.
+        Website owners are advised to take measures to enhance their security based on the information provided here.
+        Use this information at your own risk.
+      </p>
+    </div>
+  </div>
+
+{% endblock %}

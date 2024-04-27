@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container mt-5 p-5">
+        <h3 class="text-center text-danger mb-3">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </h3>
+
+        <form method="post">
+            {% csrf_token %}
+            <p class="text-center p-3">
+                <label for="username" class="text-white" style="font-size:1.8em;">Username</label> <br>
+                <input id="username" class="text-center" style="font-size:1.8em; width:100%; border:3px solid #00AEA0;border-radius:20px;" type="text" name="username" placeholder="Enter your username" required>
+            </p>
+            <p class="text-center p-3">
+                <label for="firstname" class="text-white" style="font-size:1.8em;">Firstname</label> <br>
+                <input id="firstname" class="text-center" style="font-size:1.8em; width:100%; border:3px solid #00AEA0;border-radius:20px;" type="text" name="firstname" placeholder="Enter your firstname" required>
+            </p>
+            <p class="text-center p-3">
+                <label for="lastname" class="text-white" style="font-size:1.8em;">Lastname</label> <br>
+                <input id="lastname" class="text-center" style="font-size:1.8em; width:100%; border:3px solid #00AEA0;border-radius:20px;" type="text" name="lastname" placeholder="Enter your lastname" required>
+            </p>
+            <p class="text-center p-3">
+                <label for="email" class="text-white" style="font-size:1.8em;">Address Email</label> <br>
+                <input id="email" class="text-center" style="font-size:1.8em; width:100%; border:3px solid #00AEA0;border-radius:20px;" type="email" name="email" placeholder="Enter your email" required>
+            </p>
+            <p class="text-center p-3">
+                <label for="password" class="text-white" style="font-size:1.8em;">Password</label> <br>
+                <input id="password" class="text-center" style="font-size:1.8em; width:100%; border:3px solid #00AEA0;border-radius:20px;" type="password" name="password" placeholder="Enter your password" required>
+            </p>
+            <p class="text-center p-3">
+                <label for="password1" class="text-white" style="font-size:1.8em;">Confirm password</label> <br>
+                <input id="password1" class="text-center" style="font-size:1.8em; width:100%; border:3px solid #00AEA0;border-radius:20px;" type="password" name="password1" placeholder="Enter your password confirm" required>
+            </p>
+            <div class="d-flex justify-content-center p-5">
+                <button type="submit" class="btn btn-success" style="font-size:1.8em;">Submit</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

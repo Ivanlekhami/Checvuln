@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container mt-5 p-5">
+        <h3 class="text-center text-danger mb-3">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </h3>
+
+        <form method="post">
+            {% csrf_token %}
+            <p class="text-center p-3">
+                <label for="username" class="text-white" style="font-size:1.8em;">Username</label> <br>
+                <input id="username" class="text-center" style="font-size:1.8em; width:100%; border:3px solid #00AEA0;border-radius:20px;" type="text" name="username" placeholder="Enter your username" required>
+            </p>
+            <p class="text-center p-3">
+                <label for="password" class="text-white" style="font-size:1.8em;">Password</label> <br>
+                <input id="password" class="text-center" style="font-size:1.8em; width:100%; border:3px solid #00AEA0;border-radius:20px;" type="password" name="password" placeholder="Enter your password" required>
+            </p>
+            <a href="{% url 'register' %}" style="font-size:1.8em;" class="text-white p-3">Sign up</a>
+            <div class="d-flex justify-content-center p-5">
+                <button type="submit" class="btn btn-success" style="font-size:1.8em;">Submit</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
